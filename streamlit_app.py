@@ -19,7 +19,9 @@ MAX_MESSAGES = 5  # Adjust to keep the most recent conversations
 st.session_state.messages = st.session_state.messages[-MAX_MESSAGES:]
 
 # User input
-user_input = st.text_input("You:", "")
+default_text = """Check the following statement if there is any ambiguity. It should be clinically Correct. Any Clinical Errors Correct it. Provide the correct statement after modification and information should be clinically correct with scientific evidence."""
+
+user_input = st.text_area("You:", default_text, height=200)
 
 if st.button("Send") and user_input:
     # Add user input to chat history
